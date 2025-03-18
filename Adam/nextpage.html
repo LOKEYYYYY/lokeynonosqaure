@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="images/3.png"> <!-- Thumbnail image for social media -->
+    <meta property="og:title" content="HAPPI ADAM DAYY"> <!-- Title for social media preview -->
+    <meta property="og:description" content="Welcome to the HAPPI ADAM DAYY webpage, enjoy the content with music and images!">
+    <meta property="og:url" content="yourwebsite.com"> <!-- Your website URL -->
+
+    <title>HAPPI ADAM DAYY</title>
+
+    <style>
+        /* Set background color for the entire page */
+        body {
+            background-image: url('images/bg2.png'); /* Ensure this path is correct */
+            background-size: cover; /* Ensure the background covers the full screen */
+            background-position: center; /* Center the background image */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden; /* Hide overflow so images and music player fit within the page */
+        }
+
+        /* Container for the audio player and image links */
+        .scrollable-container {
+            width: 90%; /* Make sure it is responsive and takes up 90% of the viewport width */
+            height: 80vh; /* Use 80% of viewport height */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+            max-width: 900px; /* Set a maximum width for content */
+            margin: 20px auto; /* Center content */
+        }
+
+        /* Hide the scrollbar visually but still allow scrolling */
+        .scrollable-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Style for the image container */
+        .image-container {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF;
+        }
+
+        /* Style for images */
+        .image-container img {
+            width: 100%; /* Make images responsive */
+            height: auto;
+            object-fit: contain; /* Ensure images fit without being cropped */
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        /* Scale the image-container when hovered */
+        .image-container:hover {
+            transform: scale(1.05);
+        }
+
+        /* Optional: scale images on click */
+        .image-container:active {
+            transform: scale(1.05);
+        }
+
+        /* Play Button Style */
+        #playButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: none;
+        }
+
+        #playButton:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add the audio player -->
+    <audio id="background-music" loop>
+        <source src="music/music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Button to trigger the audio if autoplay is blocked -->
+    <button id="playButton">Play Music</button>
+
+    <!-- Container for scrollable images -->
+    <div class="scrollable-container">
+        <!-- Link each image to a YouTube video -->
+        <div class="image-container">
+            <a href="https://youtu.be/TsxAVFQkXQ8?si=TwPER5JT_JQocB1I" target="_blank">
+                <img src="images/1.png" alt="Image 1">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="https://youtu.be/vvjeX8mM-Os?si=T7LDaD-YhSdDzZyt" target="_blank">
+                <img src="images/2.png" alt="Image 2">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="https://youtu.be/JHUF2yL9fVg?si=yKnlmEKD_1qwv_pN" target="_blank">
+                <img src="images/pic3.png" alt="Image 3">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="https://youtu.be/BgCry3hGT9U?si=VypqI1vt5t6nRfrV" target="_blank">
+                <img src="images/pic4.png" alt="Image 4">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Check if the browser allows autoplay
+        window.addEventListener('load', function() {
+            var audio = document.getElementById('background-music');
+
+            // Try to play the audio when the page loads
+            audio.play().catch(function(error) {
+                // If autoplay is blocked, show the play button
+                document.getElementById('playButton').style.display = 'block';
+            });
+        });
+
+        // Event listener for the play button if autoplay is blocked
+        document.getElementById('playButton').addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            audio.play();
+            this.style.display = 'none'; // Hide the play button after playing
+        });
+    </script>
+</body>
+</html>
